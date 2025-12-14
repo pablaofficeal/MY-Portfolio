@@ -16,9 +16,9 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgres://user:password@db:5432/feedback?sslmode=disable
+      - DATABASE_URL=postgres://user:password@db-test:5432/feedback?sslmode=disable
 
-  db:
+  db-test:
     image: postgres:13-alpine
     environment:
       - POSTGRES_USER=user
