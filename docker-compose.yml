@@ -14,10 +14,8 @@ services:
     ports:
       - "7654:8080"
     depends_on:
-      - db
-    environment:
-      - DATABASE_URL=postgres://user:password@db-test:5432/feedback?sslmode=disable
-
+      - db-test
+      
   db-test:
     image: postgres:13-alpine
     environment:

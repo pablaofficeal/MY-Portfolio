@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
 	_ "github.com/lib/pq"
 )
@@ -18,7 +17,7 @@ type FormData struct {
 }
 
 func main() {
-	dbURL := os.Getenv("DATABASE_URL")
+	dbURL := "postgres://user:password@192.168.1.81:9876/feedback?sslmode=disable"
 	db, err := sql.Open("postgres", dbURL)
 	if err != nil {
 		log.Fatal(err)
