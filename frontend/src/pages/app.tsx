@@ -1,12 +1,14 @@
 import Hero from "../components/hero/hero"
-
+import TextConfig from "../libs/configs/site/text.configs"
 
 function App() {
   return (
-    <>
-      <Hero />
-      <h1 className="hero-text-title">Pabla Officeal Portfolio</h1>
-    </>
+    <main className="page">
+      <div className="layout">
+        <Hero />
+        <h1 className="hero-text-title">{TextConfig.HI}</h1>
+      </div>
+    </main>
   )
 }
 
