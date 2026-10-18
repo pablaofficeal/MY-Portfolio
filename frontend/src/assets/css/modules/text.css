@@ -49,3 +49,8 @@ ol {
 section {
     color: var(--fg-color);
 }
+
+.hero-text-title {
+    text-align: center;
+    font-size: 25px;
+}

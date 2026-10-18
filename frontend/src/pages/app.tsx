@@ -1,9 +1,13 @@
+import Hero from "../components/hero/hero"
+
+
 function App() {
-    return (
-        <div>
-            <h1>App</h1>
-        </div>
-    );
+  return (
+    <>
+      <Hero />
+      <h1 className="hero-text-title">Pabla Officeal Portfolio</h1>
+    </>
+  )
 }
 
 export default App
