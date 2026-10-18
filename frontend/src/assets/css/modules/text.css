@@ -1,0 +1,51 @@
+h1 {
+    color: var(--fg-color);
+}
+
+h2 {
+    color: var(--fg-color);
+}
+
+h3 {
+    color: var(--fg-color);
+}
+
+h4 {
+    color: var(--fg-color);
+}
+
+h5 {
+    color: var(--fg-color);
+}
+
+h6 {
+    color: var(--fg-color);
+}
+
+p {
+    color: var(--fg-color);
+}
+
+a {
+    color: var(--fg-color);
+}
+
+span {
+    color: var(--fg-color);
+}
+
+li {
+    color: var(--fg-color);
+}
+
+ul {
+    color: var(--fg-color);
+}
+
+ol {
+    color: var(--fg-color);
+}
+
+section {
+    color: var(--fg-color);
+}

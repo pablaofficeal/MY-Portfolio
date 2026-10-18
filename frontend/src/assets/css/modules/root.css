@@ -1,0 +1,45 @@
+:root {
+    --bg-color: #0e0e10;
+    --fg-color: #ffffff;
+}
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    overflow-x: clip;
+}
+
+#root {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: clip;
+}
+
+.layout {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.page {
+    width: 100%;
+    flex: 1 0 auto;
+    overflow: visible;
+}
