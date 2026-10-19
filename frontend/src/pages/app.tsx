@@ -5,9 +5,11 @@ function App() {
   return (
     <main className="page">
       <div className="layout">
-        <Hero />
-        <Footer />
+        <section>
+          <Hero />
+        </section>
       </div>
+        <Footer />
     </main>
   )
 }
