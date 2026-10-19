@@ -1,4 +1,3 @@
-import TextConfig from "../libs/configs/site/text.configs"
 import Footer from "../components/footer/footers"
 import Hero from "../components/hero/hero"
 
