@@ -51,8 +51,10 @@ section {
 }
 
 .hero-text-title {
+    position: static;
+    display: block;
     text-align: center;
-    font-size: 25px;
+    font-size: 28px;
 }
 
 .hero-prefix {
