@@ -2,13 +2,13 @@ import styled from 'styled-components'
 
 const Button = () => {
   return (
-    <StyledWrapper className="space-button">
+    <StyledWrapper>
       <button type="button" className="btn">
         <strong>SPACE</strong>
-        <div className="container-stars">
-          <div className="button-stars" />
+        <div id="container-stars">
+          <div id="stars" />
         </div>
-        <div className="glow">
+        <div id="glow">
           <div className="circle" />
           <div className="circle" />
         </div>
@@ -21,9 +21,6 @@ const StyledWrapper = styled.div`
   @import url("s://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap");
 
   .btn {
-    position: relative;
-    z-index: 0;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +46,7 @@ const StyledWrapper = styled.div`
     font-family: "Orbitron", sans-serif;
   }
 
-  .container-stars {
+  #container-stars {
     position: absolute;
     z-index: -1;
     width: 100%;
@@ -69,7 +66,7 @@ const StyledWrapper = styled.div`
     text-shadow: 0 0 4px white;
   }
 
-  .glow {
+  #glow {
     position: absolute;
     display: flex;
     width: 12rem;
@@ -100,7 +97,7 @@ const StyledWrapper = styled.div`
     animation: orbit 10s linear infinite;
   }
 
-  .btn:hover .container-stars {
+  .btn:hover #container-stars {
     z-index: 1;
     background-color: #161a25;
   }
@@ -129,14 +126,14 @@ const StyledWrapper = styled.div`
     }
   }
 
-  .button-stars {
+  #stars {
     position: relative;
     background: transparent;
     width: 200rem;
     height: 200rem;
   }
 
-  .button-stars::after {
+  #stars::after {
     content: "";
     position: absolute;
     top: -10rem;
@@ -146,12 +143,12 @@ const StyledWrapper = styled.div`
     animation: animStarRotate 90s linear infinite;
   }
 
-  .button-stars::after {
+  #stars::after {
     background-image: radial-gradient(#ffffff 1px, transparent 1%);
     background-size: 50px 50px;
   }
 
-  .button-stars::before {
+  #stars::before {
     content: "";
     position: absolute;
     top: 0;
@@ -161,7 +158,7 @@ const StyledWrapper = styled.div`
     animation: animStar 60s linear infinite;
   }
 
-  .button-stars::before {
+  #stars::before {
     background-image: radial-gradient(#ffffff 1px, transparent 1%);
     background-size: 50px 50px;
     opacity: 0.5;

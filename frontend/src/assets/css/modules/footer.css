@@ -8,7 +8,8 @@
 
 .space-button {
     position: relative;
-    margin: 24px 48px 0;
+    width: fit-content;
+    margin: 12px auto 0;
 }
 
 .footer-link {
@@ -25,19 +26,6 @@
 }
 
 @media (max-width: 600px) {
-    .layout {
-        padding-top: 24px;
-    }
-
-    .hero-text-title {
-        padding-left: 24px;
-    }
-
-    .space-button {
-        margin-left: 24px;
-        margin-right: 24px;
-    }
-
     .main-footer {
         padding-left: 24px;
         padding-right: 24px;
