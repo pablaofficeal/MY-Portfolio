@@ -6,10 +6,7 @@ import type { ModelName } from "../../libs/models/loadModel"
 
 type ScrollModelProps = {
   name: ModelName
-  label: string
   progress: MotionValue<number>
-  loadingText: string
-  errorText: string
 }
 
 function disposeModel(root: THREE.Object3D) {
@@ -24,13 +21,11 @@ function disposeModel(root: THREE.Object3D) {
   })
 }
 
-function ScrollModel({ name, label, progress, loadingText, errorText }: ScrollModelProps) {
+function ScrollModel({ name, progress }: ScrollModelProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const visibleRef = useRef(false)
   const rotationRef = useRef(0)
   const [shouldLoad, setShouldLoad] = useState(false)
-  const [loadPercent, setLoadPercent] = useState<number | null>(null)
-  const [status, setStatus] = useState<"loading" | "ready" | "error">("loading")
 
   useEffect(() => {
     const container = containerRef.current
@@ -70,7 +65,6 @@ function ScrollModel({ name, label, progress, loadingText, errorText }: ScrollMo
     try {
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     } catch {
-      setStatus("error")
       return
     }
 
@@ -105,9 +99,7 @@ function ScrollModel({ name, label, progress, loadingText, errorText }: ScrollMo
       renderer.render(scene, camera)
     })
 
-    loadModel(name, (percent) => {
-      if (!disposed) setLoadPercent(percent)
-    }).then((gltf) => {
+    loadModel(name).then((gltf) => {
       if (disposed) {
         disposeModel(gltf.scene)
         return
@@ -121,14 +113,13 @@ function ScrollModel({ name, label, progress, loadingText, errorText }: ScrollMo
       pivot.rotation.y = rotationRef.current
       pivot.add(gltf.scene)
 
-      camera.position.set(radius * 0.5, radius * (name === "galaxy" ? 2.5 : 0.7), radius * 2.7)
+      camera.position.set(radius * 0.5, radius * (name === "galaxy" ? 2.5 : 0.7), radius * 5)
       camera.lookAt(0, 0, 0)
       camera.near = Math.max(radius / 100, 0.01)
       camera.far = Math.max(radius * 100, 100)
       camera.updateProjectionMatrix()
-      setStatus("ready")
-    }).catch(() => {
-      if (!disposed) setStatus("error")
+    }).catch((error: unknown) => {
+      if (!disposed) console.error(error)
     })
 
     return () => {
@@ -142,13 +133,7 @@ function ScrollModel({ name, label, progress, loadingText, errorText }: ScrollMo
   }, [name, shouldLoad])
 
   return (
-    <div className="scroll-model-canvas" ref={containerRef} role="img" aria-label={label}>
-      {status !== "ready" && (
-        <span className="scroll-model-status" role="status">
-          {status === "error" ? errorText : `${loadingText}${loadPercent === null ? "" : ` ${loadPercent}%`}`}
-        </span>
-      )}
-    </div>
+    <div className="scroll-model-canvas" ref={containerRef} aria-hidden="true" />
   )
 }
 
