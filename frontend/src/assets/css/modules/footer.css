@@ -1,0 +1,32 @@
+.main-footer {
+    position: relative;
+    grid-row: 5;
+    width: 100%;
+    padding: 1.5rem clamp(1rem, 4vw, 3rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.hero-text-title {
+    position: relative;
+    grid-row: 2;
+}
+
+.space-button {
+    position: relative;
+    grid-row: 3;
+    justify-self: center;
+    margin-top: 1.5rem;
+}
+
+.footer-link {
+    color: var(--fg-color);
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+    opacity: 1;
+    text-decoration: underline;
+}
