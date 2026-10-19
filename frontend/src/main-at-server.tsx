@@ -1,11 +1,14 @@
 import { StrictMode } from "react"
 import { renderToString } from "react-dom/server"
-import PageRouter from "./Router"
+import { MemoryRouter } from "react-router-dom"
+import AppRoutes from "./Router"
 
 export function render() {
   return renderToString(
     <StrictMode>
-      <PageRouter />
+      <MemoryRouter initialEntries={["/"]}>
+        <AppRoutes />
+      </MemoryRouter>
     </StrictMode>
-  );
+  )
 }

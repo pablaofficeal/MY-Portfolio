@@ -1,18 +1,14 @@
-import { lazy } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/app'
+import NotFound from './pages/notFound'
 
-const Home = lazy(() => import('./pages/app'))
-const NotFound = lazy(() => import('./pages/notFound'))
-
-function PageRouter() {
+function AppRoutes() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   )
 }
 
-export default PageRouter
+export default AppRoutes
