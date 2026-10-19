@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react"
 import TextConfig from "../../libs/configs/site/text.configs"
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
 
 const LETTER_OFFSETS = [
-  { x: -180, y: -110, r: -50 },
-  { x: -80, y: 140, r: 40 },
-  { x: 0, y: -160, r: -25 },
-  { x: 90, y: 150, r: 45 },
-  { x: 180, y: -110, r: -45 },
+  { x: -260, y: -170, rotate: -60 },
+  { x: -150, y: 210, rotate: 45 },
+  { x: 10, y: -240, rotate: -30 },
+  { x: 160, y: 220, rotate: 50 },
+  { x: 260, y: -160, rotate: -55 },
 ]
 
 function HeroTitle() {
@@ -29,9 +30,9 @@ function HeroTitle() {
       setTypedLength(current)
       if (current >= prefix.length) {
         clearInterval(timer)
-        setTimeout(() => setShowName(true), 120)
+        setTimeout(() => setShowName(true), 400)
       }
-    }, 75)
+    }, 140)
 
     return () => clearInterval(timer)
   }, [prefix])
@@ -42,25 +43,50 @@ function HeroTitle() {
   return (
     <h1 className="hero-text-title">
       <span className="hero-prefix">{displayedPrefix}</span>
-      {!isTypingDone && <span className="hero-cursor">|</span>}
+      {!isTypingDone && (
+        <motion.span
+          className="hero-cursor"
+          animate={{ opacity: [1, 0] }}
+          transition={{ repeat: Infinity, duration: 0.6, ease: "easeInOut" }}
+        >
+          |
+        </motion.span>
+      )}
       <span className="hero-name">
         {name.split("").map((char, index) => {
           const offset = LETTER_OFFSETS[index % LETTER_OFFSETS.length]
           return (
-            <span
+            <motion.span
               key={index}
-              className={`hero-name-letter ${showName ? "fly-in" : ""}`}
-              style={
-                {
-                  "--fly-x": `${offset.x}px`,
-                  "--fly-y": `${offset.y}px`,
-                  "--fly-r": `${offset.r}deg`,
-                  "--delay": `${index * 80}ms`,
-                } as React.CSSProperties
+              className="hero-name-letter"
+              initial={{
+                x: isServer ? 0 : offset.x,
+                y: isServer ? 0 : offset.y,
+                rotate: isServer ? 0 : offset.rotate,
+                opacity: isServer ? 1 : 0,
+                scale: isServer ? 1 : 0.2,
+                filter: isServer ? "blur(0px)" : "blur(10px)",
+              }}
+              animate={
+                showName
+                  ? {
+                      x: 0,
+                      y: 0,
+                      rotate: 0,
+                      opacity: 1,
+                      scale: 1,
+                      filter: "blur(0px)",
+                    }
+                  : undefined
               }
+              transition={{
+                duration: 1.1,
+                delay: index * 0.16,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
               {char}
-            </span>
+            </motion.span>
           )
         })}
       </span>
