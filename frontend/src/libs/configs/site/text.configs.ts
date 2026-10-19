@@ -11,6 +11,7 @@ function TextConfig() {
 
         // Menu and links
         HomeLinks: langDict.HomeLinks,
+        ProjectLinks: langDict.ProjectLinks,
     }
 }
 export default TextConfig()
