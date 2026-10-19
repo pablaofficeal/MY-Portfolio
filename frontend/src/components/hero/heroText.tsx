@@ -1,9 +1,10 @@
 import TextConfig from "../../libs/configs/site/text.configs"
+import HeroTitle from "./heroTitle"
 
 function HeroText() {
     return (
         <section className="hero-text">
-            <h1 className="hero-text-title">{TextConfig.HI}</h1>
+            <HeroTitle />
             <p className="hero-text-description">{TextConfig.DESCRIPTION_TITLE}</p>
         </section>
     )
