@@ -31,17 +31,15 @@ body {
 }
 
 .layout {
-    position: relative;
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    padding: 38svh 1.5rem 0;
+    overflow: visible;
 }
 
 .page {
     width: 100%;
     flex: 1 0 auto;
-    overflow: hidden;
+    overflow: visible;
 }
