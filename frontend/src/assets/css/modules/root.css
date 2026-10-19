@@ -31,11 +31,13 @@ body {
 }
 
 .layout {
+    position: relative;
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: visible;
+    padding-top: 32px;
+    overflow: hidden;
 }
 
 .page {

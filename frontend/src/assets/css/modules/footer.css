@@ -1,32 +1,45 @@
 .main-footer {
     position: relative;
-    grid-row: 5;
     width: 100%;
-    padding: 1.5rem clamp(1rem, 4vw, 3rem);
+    margin-top: auto;
+    padding: 24px 48px;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.hero-text-title {
-    position: relative;
-    grid-row: 2;
 }
 
 .space-button {
     position: relative;
-    grid-row: 3;
-    justify-self: center;
-    margin-top: 1.5rem;
+    margin: 24px 48px 0;
 }
 
 .footer-link {
     color: var(--fg-color);
     text-decoration: none;
     opacity: 0.75;
-    transition: opacity 0.2s ease;
+    transition: opacity 200ms ease;
 }
 
 .footer-link:hover,
 .footer-link:focus-visible {
     opacity: 1;
     text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .layout {
+        padding-top: 24px;
+    }
+
+    .hero-text-title {
+        padding-left: 24px;
+    }
+
+    .space-button {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .main-footer {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 }
