@@ -1,3 +1,5 @@
+import HeroText from "./heroText"
+
 function Hero() {
   return (
     <div className="container">
@@ -5,6 +7,7 @@ function Hero() {
       <div id="stars2" />
       <div id="stars3" />
       <div />
+      <HeroText />
     </div>
   )
 }
