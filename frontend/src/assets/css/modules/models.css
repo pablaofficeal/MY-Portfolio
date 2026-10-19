@@ -1,4 +1,4 @@
-.layout--space {
+.layout:has(> .scroll-models) {
     overflow: clip;
 }
 
