@@ -1,3 +1,5 @@
+import "../assets/css/404.css"
+
 function NotFound() {
   return (
     <main className="my-custom-face-container">

@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     height: 500px;
-    background: #ffffff00;
-    color: #1a1a1a;
+    background: var(--bg-color);
+    color: var(--fg-color);
 }
 
 .my-custom-face-container .face {
