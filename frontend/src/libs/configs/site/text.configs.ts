@@ -8,6 +8,9 @@ function TextConfig() {
     return {
         HI: langDict.HI,
         DESCRIPTION_TITLE: langDict.DESCRIPTION_TITLE,
+
+        // Menu and links
+        HomeLinks: langDict.HomeLinks,
     }
 }
 export default TextConfig()
